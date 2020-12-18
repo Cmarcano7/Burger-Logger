@@ -10,8 +10,8 @@ var burger = {
     },
     
     // Function that will insert a burger to our database
-    insertOne: function(cols, vals, cb) {
-        orm.insertOne("burgers", cols, vals, function(res) {
+    insertOne: function(vals, cb) {
+        orm.insertOne("burgers", vals, function(res) {
             cb(res);
         });
     },

@@ -10,15 +10,12 @@ router.get("/", function(req, res) {
             burgers: data
         };
         
-        console.log(hbsObject);
-        
         res.render("index", hbsObject);
     });
 });
   
 router.post("/burger/create", function(req, res) {
-    burger.insertOne(["burger_name"], 
-    [req.body.name], 
+    burger.insertOne(req.body.burger_name, 
     function(result) {
         // Send back the ID of the new quote
         res.json({ id: result.insertId });
@@ -28,10 +25,8 @@ router.post("/burger/create", function(req, res) {
 router.put("/burger/update/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
-    console.log("condition", condition);
-  
     burger.updateOne({
-      devoured: req.body.devoured
+      condition
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404

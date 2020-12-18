@@ -26,17 +26,16 @@ $(function() {
       event.preventDefault();
   
       var newBurger = {
-        name: $("#burger").val().trim(),
+        burger_name: $("#burger").val().trim(),
       };
   
       // Send the POST request.
-      $.ajax("/api/cats", {
+      $.ajax("/burger/create", {
         type: "POST",
         data: newBurger
       }).then(
         function() {
-          console.log("created new burger");
-          // Reload the page to get the updated list
+          console.log("You've added the new burger: ")
           location.reload();
         }
       );
