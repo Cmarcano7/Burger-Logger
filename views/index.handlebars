@@ -1,24 +1,34 @@
-<h1>Burgers</h1>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Burgers</a>
+  </div>
+</nav>
 
-<h2>New burgers</h2>
+<div class="row">
+  
+  <div class="col-sm">
+    <h2>New burgers</h2>
+    <ul>
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/new_burgers_block}}
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/new_burgers_block}}
-    {{/unless}}
-  {{/each}}
-</ul>
+  <div class="col-sm">
+    <h2>Devoured Burgers</h2>
+    <ul>
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/devoured_burger_block}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
 
-<h2>Devoured Burgers</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/devoured_burger_block}}
-    {{/if}}
-  {{/each}}
-</ul>
+</div>
 
 <h2>Add a burger</h2>
 <form class="create-form">
