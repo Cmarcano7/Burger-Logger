@@ -4,10 +4,10 @@ const app = express();
 const exphbs = require("express-handlebars");
 
 // Getting our routes that our server will use
-const routes = require("./controllers/burgersController.js");
+const routes = require("./controllers/burgers_Controller.js");
 
 // Setting port to existing or local port 3306
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

@@ -1,7 +1,7 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
-// Helper function for creating an array of question marks and turning it into a string
+// Helper function for creating an array of question marks and turning it into a string, needed for preperation on future developments of app
 function printQuestionMarks(num) {
     var arr = [];
   
@@ -47,6 +47,8 @@ var orm = {
         querystring += "VALUES (";
         querystring += printQuestionMarks(vals.length);
         querystring += ") ";
+
+        console.log(querystring);
         
         connection.query(queryString, vals, function(err, result) {
             if (err) {
