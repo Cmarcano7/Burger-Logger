@@ -24,6 +24,7 @@ router.post("/burger/create", function(req, res) {
   
 router.put("/burger/update/:id", function(req, res) {
     var condition = "id = " + req.params.id;
+    console.log(req.params.id);
   
     burger.updateOne({
       condition
